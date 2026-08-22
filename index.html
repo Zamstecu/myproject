@@ -2,382 +2,429 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZamnnX3d - My Projects</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZamnnX3d - Projects</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+    --main:#06b6d4;
+    --light:#67e8f9;
+    --bright:#38bdf8;
+    --text:#cffafe;
+    --dark:#0891b2;
+    --rgb:6,182,212
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html{scroll-behavior:smooth}
 
-:root {
-    --main: #06b6d4;
-    --light: #67e8f9;
-    --bright: #38bdf8;
-    --text: #cffafe;
-    --dark: #0891b2;
-    --rgb: 6, 182, 212;
-}
-
-body {
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-
+body{
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
     background:
-        linear-gradient(
-            rgba(3, 8, 12, .38),
-            rgba(3, 8, 12, .78)
-        ),
-        url("upscalemedia-transformed.jpeg");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+        linear-gradient(rgba(3,8,12,.42),rgba(3,8,12,.86)),
+        url("upscalemedia-transformed.jpeg") center/cover fixed no-repeat
 }
 
-/* NAVBAR */
-
-nav {
-    max-width: 1100px;
-    margin: auto;
-    padding: 25px 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body:before,
+body:after{
+    content:"";
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:rgba(var(--rgb),.12);
+    filter:blur(100px);
+    pointer-events:none;
+    z-index:-1
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: 900;
+body:before{top:15%;left:-120px}
+body:after{right:-120px;bottom:10%}
 
-    text-shadow:
-        0 0 15px rgba(var(--rgb), .7);
+nav{
+    max-width:1100px;
+    margin:auto;
+    padding:24px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center
 }
 
-.back {
-    padding: 9px 18px;
-
-    border: 1px solid rgba(var(--rgb), .45);
-    border-radius: 8px;
-
-    color: var(--text);
-    text-decoration: none;
-
-    background: rgba(0, 0, 0, .35);
-    backdrop-filter: blur(10px);
-
-    transition: .3s;
+.logo{
+    font-size:22px;
+    font-weight:900;
+    text-shadow:0 0 18px rgba(var(--rgb),.7)
 }
 
-.back:hover {
-    background: rgba(var(--rgb), .25);
-    color: white;
-    transform: translateY(-2px);
+.back{
+    padding:9px 17px;
+    border:1px solid rgba(var(--rgb),.4);
+    border-radius:9px;
+    color:var(--text);
+    text-decoration:none;
+    background:#0005;
+    backdrop-filter:blur(8px);
+    transition:.25s
 }
 
-/* HEADER */
-
-header {
-    max-width: 850px;
-    margin: 55px auto 35px;
-    padding: 0 20px;
-    text-align: center;
+.back:hover{
+    background:rgba(var(--rgb),.2);
+    border-color:var(--light);
+    color:#fff;
+    transform:translateY(-2px)
 }
 
-.badge {
-    display: inline-block;
-
-    padding: 7px 16px;
-    border-radius: 20px;
-
-    background: rgba(var(--rgb), .13);
-    border: 1px solid rgba(var(--rgb), .4);
-
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 600;
-
-    backdrop-filter: blur(8px);
+header{
+    max-width:850px;
+    margin:58px auto 30px;
+    padding:0 20px;
+    text-align:center
 }
 
-h1 {
-    margin-top: 18px;
-    font-size: 48px;
-    font-weight: 900;
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:7px 14px;
+    border-radius:30px;
+    background:rgba(var(--rgb),.1);
+    border:1px solid rgba(var(--rgb),.35);
+    color:var(--text);
+    font-size:12px;
+    font-weight:700;
+    backdrop-filter:blur(8px)
 }
 
-.gradient {
-    background:
-        linear-gradient(
-            90deg,
-            var(--light),
-            var(--main),
-            var(--bright)
-        );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.badge:before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--light);
+    box-shadow:0 0 10px var(--light)
 }
 
-.subtitle {
-    margin-top: 12px;
-    color: rgba(255, 255, 255, .75);
-    line-height: 1.6;
+h1{
+    margin-top:17px;
+    font-size:50px;
+    line-height:1.05;
+    font-weight:900;
+    letter-spacing:-2px
 }
 
-/* SEARCH */
-
-.tools {
-    max-width: 1000px;
-    margin: 0 auto 30px;
-    padding: 0 20px;
+.gradient{
+    background:linear-gradient(90deg,var(--light),var(--main),var(--bright));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent
 }
 
-.search {
-    width: 100%;
-    padding: 14px 18px;
-
-    border-radius: 10px;
-    border: 1px solid rgba(var(--rgb), .35);
-    outline: none;
-
-    background: rgba(0, 0, 0, .45);
-    color: white;
-
-    backdrop-filter: blur(10px);
-    font-size: 14px;
+.subtitle{
+    max-width:600px;
+    margin:15px auto 0;
+    color:#ffffffa8;
+    line-height:1.65;
+    font-size:14px
 }
 
-.search::placeholder {
-    color: rgba(255, 255, 255, .45);
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:25px
 }
 
-.search:focus {
-    border-color: var(--light);
+.stat{
+    padding:8px 13px;
+    border:1px solid #ffffff14;
+    border-radius:8px;
+    background:#0005;
+    color:#ffffffb3;
+    font-size:11px;
+    backdrop-filter:blur(8px)
 }
 
-/* FILTER */
+.stat b{color:var(--light)}
 
-.filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 15px;
+.tools{
+    max-width:1000px;
+    margin:0 auto 28px;
+    padding:0 20px
 }
 
-.filter {
-    padding: 8px 15px;
+.search-wrap{position:relative}
 
-    border-radius: 8px;
-    border: 1px solid rgba(var(--rgb), .3);
-
-    background: rgba(0, 0, 0, .35);
-    color: var(--text);
-
-    cursor: pointer;
-    transition: .3s;
+.search-icon{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    opacity:.45;
+    pointer-events:none
 }
 
-.filter:hover,
-.filter.active {
-    background: var(--main);
-    color: white;
-    border-color: var(--light);
+.search{
+    width:100%;
+    padding:14px 42px 14px 40px;
+    border:1px solid rgba(var(--rgb),.3);
+    border-radius:11px;
+    outline:0;
+    background:#0007;
+    color:#fff;
+    backdrop-filter:blur(10px)
 }
 
-/* PROJECT GRID */
+.search::placeholder{color:#fff6}
 
-.projects {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 20px 70px;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.search:focus{
+    border-color:var(--light);
+    box-shadow:0 0 0 3px rgba(var(--rgb),.08)
 }
 
-/* PROJECT CARD */
-
-.project {
-    overflow: hidden;
-
-    border-radius: 16px;
-    border: 1px solid rgba(var(--rgb), .25);
-
-    background: rgba(3, 10, 15, .68);
-    backdrop-filter: blur(10px);
-
-    transition: .35s;
+.clear{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    display:none;
+    border:0;
+    background:none;
+    color:#fff8;
+    cursor:pointer;
+    font-size:16px
 }
 
-.project:hover {
-    transform: translateY(-7px);
-
-    border-color: var(--light);
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, .5),
-        0 0 30px rgba(var(--rgb), .18);
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:13px
 }
 
-.project-image {
-    height: 170px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(var(--rgb), .2),
-            rgba(0, 0, 0, .55)
-        );
-
-    font-size: 55px;
+.filter{
+    padding:8px 14px;
+    border:1px solid rgba(var(--rgb),.25);
+    border-radius:8px;
+    background:#0005;
+    color:#fffa;
+    cursor:pointer;
+    font-size:11px
 }
 
-.project-content {
-    padding: 18px;
+.filter:hover{border-color:rgba(var(--rgb),.6);color:#fff}
+
+.filter.active{
+    background:var(--main);
+    color:#fff;
+    border-color:var(--light);
+    box-shadow:0 0 18px rgba(var(--rgb),.18)
 }
 
-.project h2 {
-    font-size: 19px;
+.projects{
+    max-width:1000px;
+    margin:auto;
+    padding:0 20px 70px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px
 }
 
-.project p {
-    margin-top: 9px;
-
-    color: rgba(255, 255, 255, .65);
-    font-size: 13px;
-    line-height: 1.6;
+.project{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(var(--rgb),.22);
+    border-radius:16px;
+    background:rgba(3,10,15,.7);
+    backdrop-filter:blur(10px);
+    transition:.3s
 }
 
-/* TAGS */
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 14px;
+.project:hover{
+    transform:translateY(-6px);
+    border-color:rgba(var(--rgb),.75);
+    box-shadow:0 18px 40px #0007,0 0 25px rgba(var(--rgb),.13)
 }
 
-.tag {
-    padding: 5px 8px;
-
-    border-radius: 6px;
-
-    font-size: 10px;
-    color: var(--text);
-
-    background: rgba(var(--rgb), .1);
-    border: 1px solid rgba(var(--rgb), .25);
+.project-image{
+    height:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(
+        135deg,
+        rgba(var(--rgb),.2),
+        rgba(0,0,0,.55)
+    );
+    font-size:55px
 }
 
-/* BUTTON */
-
-.project-buttons {
-    margin-top: 17px;
+.project-image:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(3,10,15,.45),transparent 60%)
 }
 
-.btn {
-    display: block;
-
-    padding: 9px;
-
-    border-radius: 7px;
-
-    text-align: center;
-    text-decoration: none;
-
-    font-size: 12px;
-    font-weight: 600;
-
-    transition: .3s;
+.status{
+    position:absolute;
+    z-index:2;
+    top:12px;
+    right:12px;
+    padding:5px 8px;
+    border-radius:6px;
+    background:#0009;
+    font-size:9px;
+    font-weight:800;
+    backdrop-filter:blur(8px)
 }
 
-.demo {
-    background: var(--main);
-    color: white;
-    border: 1px solid var(--light);
+.status:before{
+    content:"";
+    display:inline-block;
+    width:5px;
+    height:5px;
+    margin-right:5px;
+    border-radius:50%
 }
 
-.demo:hover {
-    background: var(--dark);
+.live{
+    color:#86efac;
+    border:1px solid #22c55e4d
 }
 
-/* EMPTY */
-
-.empty {
-    grid-column: 1 / -1;
-
-    display: none;
-
-    text-align: center;
-    padding: 50px;
-
-    color: rgba(255, 255, 255, .5);
+.live:before{
+    background:#22c55e;
+    box-shadow:0 0 8px #22c55ecc
 }
 
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 0 20px 30px;
-
-    color: rgba(255, 255, 255, .4);
-    font-size: 12px;
+.wip{
+    color:#fde68a;
+    border:1px solid #eab3084d
 }
 
-/* RESPONSIVE */
+.wip:before{
+    background:#eab308;
+    box-shadow:0 0 8px #eab308cc
+}
 
-@media (max-width: 800px) {
-    .projects {
-        grid-template-columns: repeat(2, 1fr);
+.project-content{padding:17px}
+
+.project h2{
+    font-size:18px;
+    letter-spacing:-.3px
+}
+
+.project p{
+    margin-top:8px;
+    min-height:42px;
+    color:#fff9;
+    font-size:12px;
+    line-height:1.6
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:13px
+}
+
+.tag{
+    padding:5px 8px;
+    border:1px solid rgba(var(--rgb),.2);
+    border-radius:6px;
+    color:var(--text);
+    background:rgba(var(--rgb),.08);
+    font-size:9px
+}
+
+.project-buttons{
+    display:flex;
+    margin-top:16px
+}
+
+.btn{
+    flex:1;
+    padding:9px;
+    border-radius:7px;
+    text-align:center;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700
+}
+
+.demo{
+    background:var(--main);
+    color:#fff;
+    border:1px solid var(--light)
+}
+
+.demo:hover{background:var(--dark)}
+
+.empty{
+    grid-column:1/-1;
+    display:none;
+    padding:55px 20px;
+    text-align:center;
+    color:#fff8
+}
+
+.empty-icon{font-size:30px;margin-bottom:10px}
+.empty h3{color:#fffc;font-size:15px}
+.empty p{margin-top:5px;font-size:11px}
+
+footer{
+    padding:0 20px 30px;
+    text-align:center;
+    color:#fff6;
+    font-size:11px
+}
+
+@media(max-width:800px){
+    .projects{grid-template-columns:repeat(2,1fr)}
+    h1{font-size:42px}
+}
+
+@media(max-width:550px){
+    body{background-attachment:scroll}
+
+    body:before,
+    body:after{
+        width:180px;
+        height:180px;
+        filter:blur(70px)
     }
 
-    h1 {
-        font-size: 40px;
-    }
-}
+    nav{padding:18px 15px}
+    .logo{font-size:19px}
+    .back{padding:8px 13px;font-size:11px}
+    header{margin-top:38px}
+    h1{font-size:34px;letter-spacing:-1.3px}
+    .subtitle{font-size:12px}
+    .stat{padding:7px 10px;font-size:10px}
+    .tools{padding:0 15px}
 
-@media (max-width: 550px) {
-    nav {
-        padding: 20px 15px;
-    }
-
-    header {
-        margin-top: 40px;
-    }
-
-    h1 {
-        font-size: 32px;
+    .filters{
+        justify-content:flex-start;
+        overflow-x:auto;
+        scrollbar-width:none
     }
 
-    .projects {
-        grid-template-columns: 1fr;
-        padding-left: 15px;
-        padding-right: 15px;
+    .filters::-webkit-scrollbar{display:none}
+    .filter{flex-shrink:0}
+
+    .projects{
+        grid-template-columns:1fr;
+        padding:0 15px 55px
     }
 
-    .tools {
-        padding: 0 15px;
-    }
-
-    .project-image {
-        height: 190px;
-    }
+    .project-image{height:180px}
+    .project:hover{transform:none;box-shadow:none}
+    .project p{min-height:auto}
 }
 </style>
 </head>
@@ -386,35 +433,38 @@ footer {
 
 <nav>
     <div class="logo">ZamnnX3d.</div>
-
-    <a
-        href="https://zamstecu.github.io/zamnn3d/"
-        class="back">
-        ← Home
-    </a>
+    <a href="https://zamstecu.github.io/zamnn3d/" class="back">← Home</a>
 </nav>
 
 <header>
-    <span class="badge">ZamnnX3d</span>
+    <span class="badge">ZamnnX3d Projects</span>
 
-    <h1>
-        My <span class="gradient">Projects</span>
-    </h1>
+    <h1>My <span class="gradient">Projects</span></h1>
 
     <p class="subtitle">
-        Some projects that I have created while learning
+        A collection of projects I've built while learning
         programming and web development.
     </p>
+
+    <div class="stats">
+        <div class="stat"><b id="totalCount">3</b> Projects</div>
+        <div class="stat"><b>3</b> Live</div>
+    </div>
 </header>
 
 <div class="tools">
 
-    <input
-        type="text"
-        id="search"
-        class="search"
-        placeholder="Search projects..."
-    >
+    <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+
+        <input
+            id="search"
+            class="search"
+            placeholder="Search projects, technologies..."
+            autocomplete="off">
+
+        <button id="clearSearch" class="clear">×</button>
+    </div>
 
     <div class="filters">
         <button class="filter active" data-filter="all">All</button>
@@ -426,24 +476,25 @@ footer {
 
 </div>
 
-<section class="projects" id="projects">
-
-    <!-- PROJECT 1 -->
+<section class="projects">
 
     <article
         class="project"
         data-category="web"
-        data-name="ZamnnX3d Portfolio">
+        data-name="ZamnnX3d Portfolio"
+        data-search="zamnnx3d portfolio html css javascript website web">
 
-        <div class="project-image">🌐</div>
+        <div class="project-image">
+            🌐
+            <span class="status live">LIVE</span>
+        </div>
 
         <div class="project-content">
-
             <h2>ZamnnX3d Portfolio</h2>
 
             <p>
-                Personal portfolio website with
-                custom themes, background and video.
+                Personal portfolio website with custom themes,
+                background and video.
             </p>
 
             <div class="tags">
@@ -453,32 +504,30 @@ footer {
             </div>
 
             <div class="project-buttons">
-                <a
-                    href="https://zamstecu.github.io/zamnn3d/"
-                    class="btn demo">
+                <a href="https://zamstecu.github.io/zamnn3d/" class="btn demo">
                     View Project
                 </a>
             </div>
-
         </div>
     </article>
-
-    <!-- PROJECT 2 -->
 
     <article
         class="project"
         data-category="javascript"
-        data-name="Chesst">
+        data-name="Chesst"
+        data-search="chesst chess game html css javascript game">
 
-        <div class="project-image">♟️</div>
+        <div class="project-image">
+            ♟️
+            <span class="status live">LIVE</span>
+        </div>
 
         <div class="project-content">
-
             <h2>Chesst</h2>
 
             <p>
-                Simple chess game made with
-                HTML, CSS and JavaScript.
+                Simple chess game made with HTML,
+                CSS and JavaScript.
             </p>
 
             <div class="tags">
@@ -488,32 +537,30 @@ footer {
             </div>
 
             <div class="project-buttons">
-                <a
-                    href="https://zamstecu.github.io/chesst-simple/"
-                    class="btn demo">
+                <a href="https://zamstecu.github.io/chesst-simple/" class="btn demo">
                     View Project
                 </a>
             </div>
-
         </div>
     </article>
-
-        <!-- PROJECT 3 -->
 
     <article
         class="project"
         data-category="javascript"
-        data-name="Chesst">
+        data-name="Maps"
+        data-search="maps school scholl html css javascript">
 
-        <div class="project-image">🗺️</div>
+        <div class="project-image">
+            🗺️
+            <span class="status live">LIVE</span>
+        </div>
 
         <div class="project-content">
-
             <h2>Maps</h2>
 
             <p>
-                maps to scholl made with
-                HTML, CSS and JavaScript.
+                Interactive school map made with HTML,
+                CSS and JavaScript.
             </p>
 
             <div class="tags">
@@ -523,110 +570,98 @@ footer {
             </div>
 
             <div class="project-buttons">
-                <a
-                    href="https://zamstecu.github.io/mapstoscholl/"
-                    class="btn demo">
+                <a href="https://zamstecu.github.io/mapstoscholl/" class="btn demo">
                     View Project
                 </a>
             </div>
-
         </div>
     </article>
-
-    <!-- COMING SOON -->
 
     <article
         class="project"
         data-category="other"
-        data-name="Coming Soon">
+        data-name="Coming Soon"
+        data-search="coming soon future project">
 
-        <div class="project-image">🚀</div>
+        <div class="project-image">
+            🚀
+            <span class="status wip">WIP</span>
+        </div>
 
         <div class="project-content">
-
             <h2>Coming Soon</h2>
 
             <p>
-                Another project is currently
-                being developed.
+                Another project is currently being developed.
             </p>
 
             <div class="tags">
                 <span class="tag">Future</span>
             </div>
-
         </div>
     </article>
 
     <div class="empty" id="empty">
-        No project found.
+        <div class="empty-icon">🔍</div>
+        <h3>No projects found</h3>
+        <p>Try another keyword or category.</p>
     </div>
 
 </section>
 
-<footer>
-    © 2026 ZamnnX3d. All rights reserved.
-</footer>
+<footer>© 2026 ZamnnX3d. All rights reserved.</footer>
 
 <script>
+const search=document.getElementById("search");
+const clear=document.getElementById("clearSearch");
+const projects=document.querySelectorAll(".project");
+const filters=document.querySelectorAll(".filter");
+const empty=document.getElementById("empty");
+const count=document.getElementById("totalCount");
 
-const search = document.getElementById("search");
-const projects = document.querySelectorAll(".project");
-const filters = document.querySelectorAll(".filter");
-const empty = document.getElementById("empty");
+let current="all";
 
-let currentFilter = "all";
+function filterProjects(){
+    const query=search.value.toLowerCase().trim();
+    let visible=0;
 
-function filterProjects() {
+    projects.forEach(p=>{
+        const text=(
+            p.dataset.name+" "+p.dataset.search
+        ).toLowerCase();
 
-    const query = search.value.toLowerCase().trim();
-    let visible = 0;
+        const show=
+            (current==="all"||p.dataset.category===current)&&
+            text.includes(query);
 
-    projects.forEach(project => {
+        p.style.display=show?"":"none";
 
-        const category = project.dataset.category;
-        const name = project.dataset.name.toLowerCase();
-
-        const categoryMatch =
-            currentFilter === "all" ||
-            category === currentFilter;
-
-        const searchMatch =
-            name.includes(query);
-
-        const show =
-            categoryMatch && searchMatch;
-
-        project.style.display =
-            show ? "" : "none";
-
-        if (show) visible++;
+        if(show)visible++;
     });
 
-    empty.style.display =
-        visible === 0 ? "block" : "none";
+    empty.style.display=visible?"none":"block";
+    count.textContent=visible;
+    clear.style.display=query?"block":"none";
 }
 
-search.addEventListener("input", filterProjects);
+search.oninput=filterProjects;
 
-filters.forEach(button => {
+clear.onclick=()=>{
+    search.value="";
+    filterProjects();
+    search.focus();
+};
 
-    button.addEventListener("click", () => {
-
-        filters.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        currentFilter =
-            button.dataset.filter;
-
+filters.forEach(btn=>{
+    btn.onclick=()=>{
+        filters.forEach(x=>x.classList.remove("active"));
+        btn.classList.add("active");
+        current=btn.dataset.filter;
         filterProjects();
-    });
-
+    };
 });
 
+filterProjects();
 </script>
 
 </body>
